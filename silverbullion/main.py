@@ -25,3 +25,6 @@ def lambda_handler(event, context):
         'body': len(data.text),
         'size': len(data.text)
     }
+
+if __name__ == "__main__":
+    lambda_handler("", "")
