@@ -1,7 +1,7 @@
 import json
 import mock
 import requests
-from sayhi import main
+from silverbullion import main
 
 
 class mock_request:
