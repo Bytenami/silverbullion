@@ -11,8 +11,8 @@ def lambda_handler(event, context):
     s3 = boto3.resource(
         's3',
         region_name = 'us-east-2',
-        aws_access_key_id = os.environ.get("aws_access_key_id_s3"),
-        aws_secret_access_key = os.environ.get("aws_secret_access_key_s3")
+        aws_access_key_id = os.environ.get("aws_access_key_id"),
+        aws_secret_access_key = os.environ.get("aws_secret_access_key")
 
     )
     url = "https://www.silverbullion.com.sg/Product/Detail/Gold_1_kg_ABC_bar"
@@ -25,3 +25,6 @@ def lambda_handler(event, context):
         'body': len(data.text),
         'size': len(data.text)
     }
+
+if __name__ == "__main__":
+    lambda_handler("", "")
