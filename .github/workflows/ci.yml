@@ -21,8 +21,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -e .
-        env:
-          aws_access_key_id_s3: TEST
-          aws_secret_access_key_s3: TEST
       - name: Run tests with pytest
+        env:
+            aws_access_key_id_s3: TEST
+            aws_secret_access_key_s3: TEST
         run: python -m pytest tests/
