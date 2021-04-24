@@ -26,5 +26,3 @@ jobs:
           aws_secret_access_key_s3: TEST
       - name: Run tests with pytest
         run: python -m pytest tests/
-        
-
