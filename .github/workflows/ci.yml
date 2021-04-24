@@ -23,6 +23,6 @@ jobs:
           pip install -e .
       - name: Run tests with pytest
         env:
-            aws_access_key_id_s3: TEST
-            aws_secret_access_key_s3: TEST
+            aws_access_key_id_s3: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws_secret_access_key_s3: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: python -m pytest tests/
