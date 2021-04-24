@@ -22,8 +22,8 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
         env:
-          aws_access_key_id: AKIA26FLW2BK3QVHME5B
-          aws_secret_access_key: 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
+          AWS_ACCESS_KEY_ID: AKIA26FLW2BK3QVHME5B
+          AWS_SECRET_ACCESS_KEY: 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
       - name: Run tests with pytest
         run: python -m pytest tests/
         
