@@ -16,8 +16,6 @@ def test_main():
     response = main.lambda_handler("", "")
     expected = {
         'statusCode': 200,
-        'headers': 'blah',
-        'body': 125438,
-        'size': 125438
+        'body': 125438
     }
     assert response == expected

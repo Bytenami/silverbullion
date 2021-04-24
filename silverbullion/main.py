@@ -5,7 +5,6 @@ import boto3
 import datetime as dt
 
 
-
 def lambda_handler(event, context):
     # TODO implement
     s3 = boto3.resource(
@@ -16,15 +15,19 @@ def lambda_handler(event, context):
 
     )
     url = "https://www.silverbullion.com.sg/Product/Detail/Gold_1_kg_ABC_bar"
-    data = requests.get(url)
-    fnam = f"silver_bullion_gold_{dt.datetime.now()}.html"
-    s3.Object("bn-silverbullion", fnam).put(Body=data.text)
-    return {
-        'statusCode': 200,
-        'headers': "blah",
-        'body': len(data.text),
-        'size': len(data.text)
-    }
+    try:
+        data = requests.get(url)
+        fnam = f"silver_bullion_gold_{dt.datetime.now()}.html"
+        s3.Object("bn-silverbullion", fnam).put(Body=data.text)
+        return {
+            'statusCode': 200,
+            'body': len(data.text)
+        }
+    except Exception as e:
+        return {
+            'statusCode': 418,
+            'body': f'{e}'
+        }
 
 if __name__ == "__main__":
     lambda_handler("", "")
